@@ -8,5 +8,17 @@ const Author = new mongoose.Schema({
     gender: {
         type: Number,
         required: true,
-    }
+    },
+    books: [
+        {
+            bookId: {
+                type: mongoose.Types.ObjectId,
+                required: false,
+            }
+        }
+    ],
+}, {
+    timestamps: true,
 })
+
+export default mongoose.models.Author || mongoose.model('Author', Author);

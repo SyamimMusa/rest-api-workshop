@@ -1,16 +1,12 @@
-import AuthorService from '../services/author.js';
+import author from '../services/author.js';
 
 const getAuthor = async (req, res, next) => {
     try {
         const { id } = req.params;
 
-        const response = await new AuthorService().getAuthor(id);
+        const response = await author.getAuthor(id);
 
-        if (response.status === 'OK') {
-            res.send(response.data);
-        } else {
-            res.status(400).send(response.message);
-        }
+        res.send(response.data);
     } catch (err) {
         next(err);
     }
@@ -20,13 +16,9 @@ const getAuthors = async (req, res, next) => {
     try {
         const { gender, name = '' } = req.query;
 
-        const response = await new AuthorService().getAuthors(Number(gender), name.toString());
+        const response = await author.getAuthors(Number(gender), name.toString());
 
-        if (response.status === 'OK') {
-            res.send(response.data);
-        } else {
-            res.status(400).send(response.message);
-        }
+        res.send(response.data);
     } catch (err) {
         next(err);
     }
@@ -36,18 +28,49 @@ const createAuthor = async (req, res, next) => {
     try {
         const { name, gender } = req.body;
 
-        const response = await new AuthorService().createAuthor(name, gender);
+        const response = await author.createAuthor(gender, name);
 
-        if (response.status === 'OK') {
-            res.send(response.data);
-        } else {
-            res.status(400).send(response.message);
-        }
+        res.send(response.data);
     } catch (err) {
         next(err);
     }
 };
 
+const deleteAuthor = async (req, res, next) => {
+    try {
+
+        const { id } = req.params;
+
+        const response = await author.deleteAuthor(id);
+
+        res.send(response.data);
+
+    } catch (err) {
+        next(err);
+    }
+}
+
+const updateAuthor = async (req, res, next) => {
+    try {
+
+        const { id } = req.params;
+
+        const { gender, name } = req.body;
+
+        const response = await author.updateAuthor(id, gender, name);
+        
+        res.send(response.data);
+        
+    } catch (err) {
+        next(err);
+    }
+}
+
+
 export default {
     getAuthor,
+    createAuthor,
+    getAuthors,
+    deleteAuthor,
+    updateAuthor
 };

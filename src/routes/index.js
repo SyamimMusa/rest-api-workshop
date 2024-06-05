@@ -6,15 +6,16 @@ const router = express.Router();
 
 // Author
 router.get('/author/:id', author.getAuthor);
-// router.get('/author', author.);
-router.post('/author');
-router.delete('/author');
-router.patch('/author');
+router.get('/author', author.getAuthors);
+router.post('/author', author.createAuthor);
+router.delete('/author/:id', author.deleteAuthor);
+router.put('/author/:id', author.updateAuthor);
 
-// Hello
-router.get('/helloworld', (req, res) => {
+
+// Hello World
+router.get('/helloWorld', (req, res) => {
     try {
-        res.send('Hello human');
+        res.send('Hello Human');
     } catch (err) {
         res.status(400).send(err);
     }

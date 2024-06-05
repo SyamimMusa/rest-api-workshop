@@ -1,45 +1,78 @@
-export default class AuthorService {
-    async getAuthor(id) {
-        try {
+import mongoose from "mongoose";
+
+import Author from '../models/Author.js'
+import { error } from "console";
+
+
+    const getAuthor = async (id) => {
+        const response = await Author.findById(id);
+
+        if (!response) throw new Error (`No author with this id : ${id}`)
+
+        return {
+            data: response
+        }
+    
+    }
+
+    const getAuthors = async (gender, name) => {
+            const response = await Author.find({
+                $and: [
+                    { name: new RegExp(name, 'i') },
+                    { gender },
+                ],
+                }, {
+                    $match: {
+                        test: '11'
+                    }
+                });
+
             return {
-                status: 'OK',
-                data: id,
-            };
-        } catch (err) {
+                data: response,
+            }
+
+    }
+
+    const createAuthor = async (gender, name) => {
+
+            const response = await Author.create({
+                name,
+                gender
+            });
+
             return {
-                status: 'Not OK',
-                message: err,
-            };
+                data: response,
+            }
+    }
+
+    const deleteAuthor = async (id) => {
+    
+        const response = await Author.deleteOne({ _id: id})
+
+        if (response.deletedCount < 1) throw new Error('Unable to delete non-existend author');
+
+        return {
+            data: response,
         }
     }
 
-    async getAuthors(gender, name) {
-        try {
-            console.log(gender, name);
+    const updateAuthor = async (id, gender, name) => {
+            const response = await Author.findByIdAndUpdate(id, {
+                gender,
+                name,
+            }, { new: true });
+
             return {
-                status: 'OK',
-                data: [],
-            };
-        } catch (err) {
-            return {
-                status: 'Not OK',
-                message: err,
-            };
-        }
+                data: response,
+            }
+        
     }
 
-    async createAuthor(gender, name) {
-        try {
-            console.log(gender, name);
-            return {
-                status: 'OK',
-                data: [],
-            };
-        } catch (err) {
-            return {
-                status: 'Not OK',
-                message: err,
-            };
-        }
-    }
+
+export default {
+    getAuthor,
+    getAuthors,
+    createAuthor,
+    deleteAuthor,
+    updateAuthor
 }

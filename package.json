@@ -1,14 +1,11 @@
 {
-  "name": "nodejs-boilerplate",
-  "version": "0.0.4",
-  "description": "Boilerplate for NodeJS project",
+  "name": "restapi-mongoose-node",
+  "version": "0.0.1",
+  "description": "REST API WORKSHOP",
   "main": "app.ts",
   "type": "module",
   "scripts": {
-    "start": "env-cmd -f .env nodemon ./src/app.js",
-    "tsc": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .ts"
+    "start": "env-cmd -f .env nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
