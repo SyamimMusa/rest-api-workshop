@@ -2,47 +2,17 @@
   "name": "restapi-mongoose-node",
   "version": "0.0.1",
   "description": "REST API WORKSHOP",
-  "main": "app.ts",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "start": "env-cmd -f .env nodemon ./src/app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/liew-dd/nodejs-boilerplate.git"
-  },
   "author": "Double Dot PLT",
   "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/liew-dd/nodejs-boilerplate/issues"
-  },
-  "homepage": "https://gitlab.com/liew-dd/nodejs-boilerplate#readme",
   "dependencies": {
-    "apisauce": "^2.1.5",
-    "bcryptjs": "^2.4.3",
-    "compression": "^1.7.4",
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
-    "dayjs": "^1.11.5",
     "env-cmd": "^10.1.0",
     "express": "^4.17.3",
-    "express-joi-validation": "^5.0.1",
-    "express-mongo-sanitize": "^2.2.0",
-    "express-rate-limit": "^6.3.0",
-    "express-validation": "^4.1.0",
-    "helmet": "^5.0.2",
-    "http-status": "^1.7.3",
-    "jsonwebtoken": "^9.0.2",
-    "module-alias": "^2.2.2",
-    "mongoose": "^8.4.1",
-    "morgan": "^1.10.0",
-    "rotating-file-stream": "^3.0.4",
-    "saslprep": "^1.0.3",
-    "source-map-support": "^0.5.21",
-    "winston": "^3.7.2",
-    "winston-daily-rotate-file": "^4.7.1",
-    "winston-slack-webhook-transport": "^2.1.0",
-    "winston-transport-sentry-node": "^2.7.0"
+    "mongoose": "^8.4.1"
   },
   "_moduleAliases": {
     "~config": "dist/config",
@@ -55,24 +25,6 @@
     "~api": "dist/api"
   },
   "devDependencies": {
-    "@types/compression": "^1.7.2",
-    "@types/cors": "^2.8.12",
-    "@types/eslint": "^8.4.1",
-    "@types/express": "^4.17.13",
-    "@types/jsonwebtoken": "^9.0.5",
-    "@types/morgan": "^1.9.3",
-    "@types/node": "^20.14.1",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
-    "concurrently": "^7.0.0",
-    "esbuild": "^0.15.5",
-    "eslint": "^8.9.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-security": "^1.4.0",
-    "nodemon": "^2.0.15",
-    "ts-node": "^10.5.0",
-    "typescript": "^4.5.5"
+    "nodemon": "^2.0.15"
   }
 }
