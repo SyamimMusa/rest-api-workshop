@@ -14,16 +14,6 @@
     "express": "^4.17.3",
     "mongoose": "^8.4.1"
   },
-  "_moduleAliases": {
-    "~config": "dist/config",
-    "~middlewares": "dist/middlewares",
-    "~routes": "dist/routes",
-    "~controllers": "dist/controllers",
-    "~models": "dist/models",
-    "~services": "dist/services",
-    "~lib": "dist/lib",
-    "~api": "dist/api"
-  },
   "devDependencies": {
     "nodemon": "^2.0.15"
   }
