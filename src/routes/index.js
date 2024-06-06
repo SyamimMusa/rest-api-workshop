@@ -1,24 +1,21 @@
 import express from 'express';
 
-import author from '../controllers/author.js';
-
 const router = express.Router();
 
-// Author
-router.get('/author/:id', author.getAuthor);
-router.get('/author', author.getAuthors);
-router.post('/author', author.createAuthor);
-router.delete('/author/:id', author.deleteAuthor);
-router.put('/author/:id', author.updateAuthor);
-
+/**
+ * HTTP METHODS
+ * 1) GET
+ * 2) POST
+ * 3) DELETE
+ * 4) PUT
+ * 
+ * Reference link https://restfulapi.net/http-methods/ 
+ */
 
 // Hello World
-router.get('/helloWorld', (req, res) => {
-    try {
-        res.send('Hello Human');
-    } catch (err) {
-        res.status(400).send(err);
-    }
-});
+router.get('/helloworld', (req, res) => {
+    res.send('Hello Human');
+})
+
 
 export default router;

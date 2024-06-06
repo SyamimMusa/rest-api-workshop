@@ -3,14 +3,26 @@ import mongoose from "mongoose";
 import Author from '../models/Author.js'
 import { error } from "console";
 
+/* 
+Our services, your app's business logic exists here. 
+
+1) Get the data sent over to you from the controller
+2) Do whatever you need to do with it.
+3) Return the result
+**/
+
 
     const getAuthor = async (id) => {
-        const response = await Author.findById(id);
 
-        if (!response) throw new Error (`No author with this id : ${id}`)
+        // Step 1
+        console.log(id);
+
+        // Step 2
+        
 
         return {
-            data: response
+            status: 'OK',
+            data: `You sent me this = ${id}`
         }
     
     }
