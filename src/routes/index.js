@@ -12,10 +12,16 @@ const router = express.Router();
  * Reference link https://restfulapi.net/http-methods/ 
  */
 
-// Hello World
-router.get('/helloworld', (req, res) => {
-    res.send('Hello Human');
-})
+// Author
+// router.get('/author/:id');
+// router.get('/author');
+// router.post('/author');
+// router.delete('/author/:id');
+// router.put('/author/:id');
 
+// Hello World
+// router.get('/helloworld', (req,res) => {
+//     res.send('Hello Human');
+// })
 
 export default router;
