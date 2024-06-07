@@ -1,69 +1,42 @@
-import author from '../services/author.js';
+import authorService from '../services/author.js';
 
-const getAuthor = async (req, res, next) => {
-    try {
+const getAuthor = async (req, res) => {
         const { id } = req.params;
 
-        const response = await author.getAuthor(id);
+        // const response = await author.getAuthor(id);
 
-        res.send(response.data);
-    } catch (err) {
-        next(err);
-    }
+        res.send(`You sent me ${id} through the get author API`);
 };
 
-const getAuthors = async (req, res, next) => {
-    try {
-        const { gender, name = '' } = req.query;
+const getAuthors = async (req, res) => {
 
-        const response = await author.getAuthors(Number(gender), name.toString());
+    const { gender, name = '' } = req.query;
 
-        res.send(response.data);
-    } catch (err) {
-        next(err);
-    }
+    // const response = await author.getAuthors(Number(gender), name.toString());
+
+    res.send(`You sent me ${gender} AND ${name} through the get authors API`);
 };
 
-const createAuthor = async (req, res, next) => {
-    try {
-        const { name, gender } = req.body;
+const createAuthor = async (req, res) => {
+    const { gender, name = '' } = req.body;
 
-        const response = await author.createAuthor(gender, name);
-
-        res.send(response.data);
-    } catch (err) {
-        next(err);
-    }
+    res.send(`You sent me ${gender} AND ${name} through the create author API`);
 };
 
-const deleteAuthor = async (req, res, next) => {
-    try {
+const deleteAuthor = async (req, res) => {
+    const { id } = req.params;
 
-        const { id } = req.params;
+    // const response = await author.deleteAuthor(id);
+    res.send(`You sent me ${id} through the delete author API`);
 
-        const response = await author.deleteAuthor(id);
-
-        res.send(response.data);
-
-    } catch (err) {
-        next(err);
-    }
 }
 
-const updateAuthor = async (req, res, next) => {
-    try {
+const updateAuthor = async (req, res) => {
+    const { id } = req.params;
 
-        const { id } = req.params;
+    const { gender, name } = req.body;
 
-        const { gender, name } = req.body;
-
-        const response = await author.updateAuthor(id, gender, name);
-        
-        res.send(response.data);
-        
-    } catch (err) {
-        next(err);
-    }
+    res.send(`You sent me ${id}, ${gender} AND ${name} through the update author API`);
 }
 
 
